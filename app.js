@@ -36,7 +36,7 @@ app.use(cookieParser());
 // Pour mettre les photos dans le dossier uploads
 app.use('/uploads', express.static(__dirname + '/uploads'));
 app.use(cors({
-    credentials: true,
+    credentials: false,
     Origin: 'https://concertplace.onrender.com/',
 }));
 
