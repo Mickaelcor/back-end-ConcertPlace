@@ -37,7 +37,7 @@ app.use(cookieParser());
 app.use('/uploads', express.static(__dirname + '/uploads'));
 app.use(cors({
     credentials: true,
-    origin: 'http://localhost:3000',
+    origin: 'https://concertplace.onrender.com/',
 }));
 
 // Fonction pour recuperer les UserData avec le token de connexion
