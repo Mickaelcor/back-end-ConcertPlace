@@ -36,9 +36,7 @@ app.use(cookieParser());
 // Pour mettre les photos dans le dossier uploads
 app.use('/uploads', express.static(__dirname + '/uploads'));
 app.use(cors({
-    credentials: true,
-    Origin: 'https://concertplace.onrender.com/',
-    "Access-Control-Allow-Origin": 'https://concertplace.onrender.com/'
+    origin: 'https://concertplace.onrender.com/'
 }));
 
 // Fonction pour recuperer les UserData avec le token de connexion
