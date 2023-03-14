@@ -100,11 +100,14 @@ app.post('/login', async (req, res) => {
         const passOk = bcrypt.compareSync(password, userDoc.password);
         if (passOk) {
             jwt.sign({
+                httpOnly: true,
+                expiresIn: '1h',
                 email: userDoc.email,
                 id: userDoc._id
             }, jwtSecret, {}, (err, token) => {
                 if (err) throw err;
-                res.cookie('token', token).json(userDoc);
+                res.cookie('token', token, { httpOnly: true, secure: true }).json(userDoc);
+
             });
         } else {
             res.status(422).json('pass not ok');
